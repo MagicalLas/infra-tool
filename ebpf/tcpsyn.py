@@ -17,7 +17,9 @@ struct data_t {
 BPF_HASH(syn_count, u32, u64);
 BPF_PERF_OUTPUT(events);
 
-int count_syn(struct pt_regs *ctx, struct sock *sk) {
+int count_syn(struct pt_regs *ctx) {
+    struct sock *sk = (struct sock *)PT_REGS_PARM1(ctx);
+
     if (sk == NULL)
         return 0;
 
