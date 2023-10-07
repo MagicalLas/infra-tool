@@ -22,7 +22,7 @@ b.attach_kprobe(event="tcp_v4_syn_recv_sock", fn_name="trace_connect")
 print("Tracing tcp_v4_connect... Ctrl-C to end.")
 try:
     while True:
-        time.sleep(10)  # 10초마다 카운터 값을 출력
+        time.sleep(1)  # 10초마다 카운터 값을 출력
         for key, value in b["connect_count"].items():
             print(f"tcp_v4_connect calls: {value.value}")
 except KeyboardInterrupt:
