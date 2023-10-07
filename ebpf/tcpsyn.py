@@ -3,8 +3,9 @@ import time
 
 # eBPF 프로그램 정의
 program = """
-
+#include <uapi/linux/ptrace.h>
 #include <net/sock.h>
+#include <bcc/proto.h>
 
 typedef struct backlog_key {
     u32 pid;
@@ -22,7 +23,6 @@ int do_entry(struct pt_regs *ctx) {
     key.pid = pid;
 
     bpf_get_current_comm(&key.task, sizeof(key.task));
-
 
     dist.increment(key);
 
