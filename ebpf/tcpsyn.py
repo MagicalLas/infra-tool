@@ -6,6 +6,7 @@ program = """
 #include <uapi/linux/ptrace.h>
 
 BPF_HASH(connect_count, u64);
+u64 zero = 0;
 
 int trace_connect(struct pt_regs *ctx) {
     u64 key = 0; // 단일 키를 사용하여 모든 연결 횟수를 추적
