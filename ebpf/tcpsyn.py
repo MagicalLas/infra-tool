@@ -9,11 +9,7 @@ BPF_HASH(connect_count, u64);
 u64 zero = 0;
 
 int trace_connect(struct pt_regs *ctx) {
-    u64 key = 0; // 단일 키를 사용하여 모든 연결 횟수를 추적
-    u64 *value = connect_count.lookup_or_init(&key, &zero);
-    if (value) {
-        (*value)++;
-    }
+    bpf_trace_printk("tcp_v4_connect called\\n");
     return 0;
 }
 """
