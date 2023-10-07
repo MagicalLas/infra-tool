@@ -16,7 +16,7 @@ class CustomHandler(SimpleHTTPRequestHandler):
             self.wfile.write(b'Not Found')
 
 if __name__ == '__main__':
-    server_address = ('', 8000)
+    server_address = ('', 8001)
     httpd = HTTPServer(server_address, CustomHandler)
-    print("Server started at http://localhost:8000")
+    print("Server started at http://localhost:8001")
     httpd.serve_forever()
