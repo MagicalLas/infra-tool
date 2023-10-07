@@ -17,7 +17,7 @@ int trace_connect(struct pt_regs *ctx) {
 b = BPF(text=program)
 
 # `tcp_v4_connect` 함수에 eBPF 프로그램을 연결
-b.attach_kprobe(event="tcp_v4_connect", fn_name="trace_connect")
+b.attach_kprobe(event="tcp_v4_syn_recv_sock", fn_name="trace_connect")
 
 print("Tracing tcp_v4_connect... Ctrl-C to end.")
 try:
