@@ -4,7 +4,7 @@ include = [ "/home/usada/infra/data0/redis/*/*.log" ]
 
 [sinks.openobserve]
 type = "http"
-inputs = "sources.redis"
+inputs = [ "redis" ]
 uri = "http://localhost:5080/api/default/redis-log/_json"
 method = "post"
 auth.strategy = "basic"

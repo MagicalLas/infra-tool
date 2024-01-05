@@ -3,7 +3,7 @@ Description=OpenObserve
 After=network.target
 
 [Service]
-ExecStart=/home/usada/.vector/bin/vector /home/usada/infra/infra-tool/vector/kronii.conf.toml
+ExecStart=/home/usada/.vector/bin/vector --config /home/usada/infra/infra-tool/vector/kronii.conf.toml
 
 User=usada
 Group=usada
