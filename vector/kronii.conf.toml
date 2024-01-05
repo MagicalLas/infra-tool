@@ -1,3 +1,8 @@
+data_dir = "/home/usada/infra/data0/vector/data"
+
+[api]
+enabled = true
+
 [sources.redis]
 type = "file"
 include = [ "/home/usada/infra/data0/redis/*/*.log" ]
