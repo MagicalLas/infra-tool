@@ -1,0 +1,13 @@
+[Unit]
+Description=Node exporter for prometheus
+After=network.target
+
+[Service]
+ExecStart=/home/usada/bin/node_exporter/node_exporter
+
+User=usada
+Group=usada
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
