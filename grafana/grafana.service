@@ -1,0 +1,18 @@
+
+[Unit]
+Description=Node exporter for prometheus
+After=network.target
+
+[Service]
+ExecStart=/home/usada/bin/grafana/grafana server \
+  --config /home/usada/build-from-sources/grafana/grafana-10.1.2/conf/defaults.ini \
+  --homepath /home/usada/build-from-sources/grafana/grafana-10.1.2/ \
+  cfg:default.paths.logs=/home/usada/infra/grafana/grafana.log
+
+
+User=usada
+Group=usada
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

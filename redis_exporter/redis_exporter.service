@@ -1,0 +1,45 @@
+
+[Unit]
+Description=redis exporter
+After=network.target
+
+[Service]
+ExecStart=bash -c '/home/usada/bin/exporter/redis_exporter/redis_exporter -web.listen-address=:9121\
+  REDIS_EXPORTER_INCL_SYSTEM_METRICS=true \
+  REDIS_EXPORTER_IS_CLUSTER=true \
+  REDIS_EXPORTER_EXPORT_CLIENT_LIST=true\
+  REDIS_EXPORTER_IS_TILE38=true\
+  REDIS_ADDR=redis://127.0.0.1:6001 & /home/usada/bin/exporter/redis_exporter/redis_exporter -web.listen-address=:9122\
+  REDIS_EXPORTER_INCL_SYSTEM_METRICS=true \
+  REDIS_EXPORTER_IS_CLUSTER=true \
+  REDIS_EXPORTER_EXPORT_CLIENT_LIST=true\
+  REDIS_EXPORTER_IS_TILE38=true\
+  REDIS_ADDR=redis://127.0.0.1:6002 & /home/usada/bin/exporter/redis_exporter/redis_exporter -web.listen-address=:9123\
+  REDIS_EXPORTER_INCL_SYSTEM_METRICS=true \
+  REDIS_EXPORTER_IS_CLUSTER=true \
+  REDIS_EXPORTER_EXPORT_CLIENT_LIST=true\
+  REDIS_EXPORTER_IS_TILE38=true\
+  REDIS_ADDR=redis://127.0.0.1:6003 & /home/usada/bin/exporter/redis_exporter/redis_exporter -web.listen-address=:9124\
+  REDIS_EXPORTER_INCL_SYSTEM_METRICS=true \
+  REDIS_EXPORTER_IS_CLUSTER=true \
+  REDIS_EXPORTER_EXPORT_CLIENT_LIST=true\
+  REDIS_EXPORTER_IS_TILE38=true\
+  REDIS_ADDR=redis://127.0.0.1:6004 & /home/usada/bin/exporter/redis_exporter/redis_exporter -web.listen-address=:9125\
+  REDIS_EXPORTER_INCL_SYSTEM_METRICS=true \
+  REDIS_EXPORTER_IS_CLUSTER=true \
+  REDIS_EXPORTER_EXPORT_CLIENT_LIST=true\
+  REDIS_EXPORTER_IS_TILE38=true\
+  REDIS_ADDR=redis://127.0.0.1:6005 & /home/usada/bin/exporter/redis_exporter/redis_exporter -web.listen-address=:9126\
+  REDIS_EXPORTER_INCL_SYSTEM_METRICS=true \
+  REDIS_EXPORTER_IS_CLUSTER=true \
+  REDIS_EXPORTER_EXPORT_CLIENT_LIST=true\
+  REDIS_EXPORTER_IS_TILE38=true\
+  REDIS_ADDR=redis://127.0.0.1:6006'
+
+RemainAfterExit=yes
+User=usada
+Group=usada
+
+
+[Install]
+WantedBy=multi-user.target
