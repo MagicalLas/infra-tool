@@ -3,7 +3,8 @@ Description=Prometheus
 After=network.target
 
 [Service]
-ExecStart=/home/usada/bin/prometheus/prometheus --config.file /home/usada/infra/infra-tool/prometheus/config.yaml
+ExecStart=/home/usada/bin/prometheus/prometheus --config.file /home/usada/infra/infra-tool/prometheus/config.yaml --storage.tsdb.path /home/infra/data0/prometheus
+
 
 User=usada
 Group=usada
