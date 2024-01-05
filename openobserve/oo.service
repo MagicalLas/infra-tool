@@ -1,0 +1,16 @@
+[Unit]
+Description=OpenObserve
+After=network.target
+
+[Service]
+ExecStart=/bin/bash -c 'ZO_DATA_DIR="/home/usada/infra/data0/openobserve/" ZO_ROOT_USER_EMAIL="root@example.com" ZO_ROOT_USER_PASSWORD="ComplexPass#123" ZO_LOG_FILE="/home/usada/infra/data0/openobserve/log.txt" /home/usada/bin/openobserve/openobserve'
+
+
+
+
+User=usada
+Group=usada
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
