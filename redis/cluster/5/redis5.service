@@ -1,0 +1,13 @@
+[Unit]
+Description=Redis In-Memory Data Store
+After=network.target
+
+[Service]
+ExecStart=/home/usada/bin/redis/redis-server /home/usada/infra/redis/cluster/5/redis.conf
+ExecStop=/home/usada/bin/redis/redis-cli shutdown
+User=usada
+Group=usada
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
