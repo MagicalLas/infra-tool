@@ -6,7 +6,7 @@ scrape_configs:
   static_configs:
   - targets: ['localhost:9100']
 - job_name: redis
-  scrape_interval: 50ms
+  scrape_interval: 200ms
   static_configs:
   - targets:
     - 'localhost:9121'
